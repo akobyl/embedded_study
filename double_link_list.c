@@ -32,22 +32,19 @@ node_t *create_list(int *values, size_t length) {
   return head;
 }
 
-void reverse_list(node_t *head) {
-    node_t *current = head;
-    node_t *temp = NULL;
+node_t *reverse_list(node_t *head) {
+  node_t *current = head;
+  node_t *temp = NULL;
 
-    while (current != NULL) {
-        // Swap the next and prev pointers
-        temp = current->prev;
-        current->prev = current->next;
-        current->next = temp;
+  while (current != NULL) {
+    head = current;
+    temp = current->prev;
+    current->prev = current->next;
+    current->next = temp;
 
-        // Move to the next node in the original list
-        current = current->prev;
-    }
+    // Move to the next node in the original list
+    current = current->prev;
+  }
 
-    // If the list is not empty, set the new head
-    if (temp != NULL) {
-        head = temp->prev;
-    }
+  return head;
 }
