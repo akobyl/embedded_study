@@ -12,18 +12,28 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(test_double_link_list
-  test/test_double_link_list.cpp
+add_library(double_link_list_lib
   double_link_list.c
 )
 
-target_link_libraries(test_double_link_list
-  GTest::gtest_main
+add_library(circular_buffer_lib
+  circular_buffer.c
 )
 
-target_include_directories(test_double_link_list PRIVATE
+add_executable(test_collection
+  test/test_double_link_list.cpp
+  test/test_circular_buffer.cpp
+)
+
+target_link_libraries(test_collection
+  GTest::gtest_main
+  double_link_list_lib
+  circular_buffer_lib
+)
+
+target_include_directories(test_collection PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 include(GoogleTest)
-gtest_discover_tests(test_double_link_list)
+gtest_discover_tests(test_collection)
