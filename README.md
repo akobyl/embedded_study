@@ -2,6 +2,16 @@
 
 This repository is a collection of common embedded and system low-level programming questions which may come up in interviews.  There are some test cases as well to help ensure everything works as expected!
 
+## Topics
+
+- [x] Double Linked List
+- [x] Circular Buffer
+- [ ] Simple malloc
+- [ ] Memory alligned malloc
+- [ ] Sample RTOS sensor data collection
+- [ ] Hash table
+- [ ] Merge sort
+
 ## How to use
 
 ### Requirements
